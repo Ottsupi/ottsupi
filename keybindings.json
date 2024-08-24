@@ -1,0 +1,146 @@
+// Place your key bindings in this file to override the defaults
+[
+    // UNBIND
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.terminal.runRecentCommand",
+        "when": "accessibilityModeEnabled && terminalFocus && terminalHasBeenCreated || accessibilityModeEnabled && terminalFocus && terminalProcessSupported || accessibilityModeEnabled && accessibleViewIsShown && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal' || accessibilityModeEnabled && accessibleViewIsShown && terminalProcessSupported && accessibleViewCurrentProviderId == 'terminal'"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.reloadWindow",
+        "when": "isDevelopment"
+    },
+    {
+        "key": "escape",
+        "command": "-extension.vim_escape",
+        "when": "editorTextFocus && vim.active && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+z",
+        "command": "-undo"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "-cursorUndo",
+        "when": "textInputFocus"
+    },
+
+    // Workbench Panel Navigation
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.nextPanelView",
+        "when": "panelFocus"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.previousPanelView",
+        "when": "panelFocus"
+    },
+    {
+        "key": "ctrl+space",
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "activePanel"
+    },
+
+    // Terminal Navigation
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.terminal.new",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "workbench.action.terminal.kill",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
+    },
+
+
+    // Sidebar navigation
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.focusSideBar"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "sideBarFocus"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.focusLastEditorGroup",
+        "when": "sideBarFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.nextSideBarView",
+        "when": "sideBarFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.previousSideBarView",
+        "when": "sideBarFocus"
+    },
+
+
+    // File tree
+    {
+        "key": "n",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "shift+n",
+        "command": "explorer.newFolder",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "y",
+        "command": "filesExplorer.copy",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "p",
+        "command": "filesExplorer.paste",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "l",
+        "command": "filesExplorer.openFilePreserveFocus",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "shift+l",
+        "command": "explorer.openToSide",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "z",
+        "command": "workbench.explorer.fileView.resetViewLocation",
+        "when": "filesExplorerFocus && !inputFocus"
+    }
+]
