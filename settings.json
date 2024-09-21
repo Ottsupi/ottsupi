@@ -13,21 +13,29 @@
     "breadcrumbs.enabled": false,
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
+    "editor.stickyScroll.maxLineCount": 8,
+    "editor.cursorSurroundingLines": 8,
+
+    // Zen Mode
+    "zenMode.restore": false,
+    "zenMode.hideStatusBar": false,
+    "zenMode.centerLayout": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.silentNotifications": false,
+    
+    // Debug
+    "debug.toolBarLocation": "docked",
+    "debug.enableStatusBarColor": false,
 
     // Extensions
     "extensions.ignoreRecommendations": true,
     "git.openRepositoryInParentFolders": "never",
     "Notes.notesLocation": "",
 
-    // Extension List:
-    //  - streetsidesoftware.code-spell-checker
-    //  - EditorConfig.EditorConfig 
-    //  - mhutchie.git-graph
-    //  - donjayamanne.githistory
-    //  - GitHub.github-vscode-theme
-    //  - PKief.material-icon-theme
-    //  - vscodevim.vim
-
+    "dart.devToolsTheme": "light",
+    "dart.devToolsBrowser": "default",
+    "dart.debugExternalPackageLibraries": false,
+    "dart.debugSdkLibraries": false,
     "[dart]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": true,
@@ -38,32 +46,47 @@
         "editor.wordBasedSuggestions": "off"
     },
 
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+
     "vim.leader": "<Space>",
+    "vim.showmodename": false,
     "vim.handleKeys": {
         "<Esc>": true,
+        "<ctrl+h>": true,
+        "<ctrl+j>": true,
+        "<ctrl+k>": true,
+        "<ctrl+l>": true,
     },
     "vim.normalModeKeyBindingsNonRecursive": [
         // Buffers
         { "before": ["<S-h>"], "commands": [":bprevious"] },
         { "before": ["<S-l>"], "commands": [":bnext"] },
 
-        // Split
-        { "before": ["leader", "v"], "commands": [":vsplit"] },
-        { "before": ["leader", "s"], "commands": [":split"] },
+        // Splits
         { "before": ["leader", "h"], "commands": ["workbench.action.focusLeftGroup"] },
         { "before": ["leader", "j"], "commands": ["workbench.action.focusBelowGroup"] },
         { "before": ["leader", "k"], "commands": ["workbench.action.focusAboveGroup"] },
         { "before": ["leader", "l"], "commands": ["workbench.action.focusRightGroup"] },
+        { "before": ["leader", "H"], "commands": ["workbench.action.moveEditorToLeftGroup"] },
+        { "before": ["leader", "J"], "commands": ["workbench.action.moveEditorToBelowGroup"] },
+        { "before": ["leader", "K"], "commands": ["workbench.action.moveEditorToAboveGroup"] },
+        { "before": ["leader", "L"], "commands": ["workbench.action.moveEditorToRightGroup"] },
 
-        // File
+        // Files
         { "before": ["leader", "w"], "commands": [":w"] },
         { "before": ["leader", "q"], "commands": [":q"] },
-
         { "before": ["leader", "f"], "commands": ["workbench.action.quickOpen"] },
-        { "before": ["leader", "p"], "commands": ["editor.action.formatDocument"] },
 
+        // Editor
+        { "before": ["leader", "p"], "commands": ["editor.action.formatDocument"] },
         { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] },
         { "before": ["leader", "z"], "commands": ["workbench.action.toggleZenMode"] },
+        { "before": ["leader", "["], "commands": ["editor.fold"] },
+        { "before": ["leader", "]"], "commands": ["editor.unfold"] },
+        { "before": ["leader", "leader", "["], "commands": ["editor.foldRecursively"] },
+        { "before": ["leader", "leader", "]"], "commands": ["editor.unfoldRecursively"] },
 
         // Indention
         { "before": ["<"], "commands": ["editor.action.outdentLines"] },

@@ -25,11 +25,32 @@
         "command": "-cursorUndo",
         "when": "textInputFocus"
     },
+    {
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "-editor.action.startFindReplaceAction",
+        "when": "editorFocus || editorIsOpen"
+    },
+
+    // Open vim commandline
+    {
+        "key": "shift+;",
+        "command": "vim.showQuickpickCmdLine",
+        "when": "editorTextFocus && vim.mode != 'Insert'"
+    },
 
     // Workbench Panel Navigation
     {
         "key": "ctrl+t",
         "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+t",
+        "when": "!panelFocus",
+        "command": "workbench.action.focusPanel"
     },
     {
         "key": "ctrl+l",
@@ -44,7 +65,7 @@
     {
         "key": "ctrl+space",
         "command": "workbench.action.toggleMaximizedPanel",
-        "when": "activePanel"
+        "when": "activePanel",
     },
 
     // Terminal Navigation
@@ -73,7 +94,7 @@
     // Sidebar navigation
     {
         "key": "ctrl+e",
-        "command": "workbench.action.focusSideBar"
+        "command": "workbench.action.focusSideBar",
     },
     {
         "key": "ctrl+e",
@@ -129,11 +150,6 @@
         "when": "filesExplorerFocus && !inputFocus"
     },
     {
-        "key": "l",
-        "command": "filesExplorer.openFilePreserveFocus",
-        "when": "filesExplorerFocus && !inputFocus"
-    },
-    {
         "key": "shift+l",
         "command": "explorer.openToSide",
         "when": "filesExplorerFocus && !inputFocus"
@@ -142,5 +158,119 @@
         "key": "z",
         "command": "workbench.explorer.fileView.resetViewLocation",
         "when": "filesExplorerFocus && !inputFocus"
-    }
+    },
+
+    // Debugging
+    {
+        "key": "ctrl+d ctrl+r",
+        "command": "workbench.action.debug.restart",
+        "when": "inDebugMode"
+    },
+
+    // Remapping for code action, suggestion, and quick fix dropdowns
+    // ctrl j = down
+    // ctrl y = up
+    // ctrl h = open/close dropdowns
+    // ctrl l = accept
+
+    // Suggestions
+    {
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+    },
+    {
+        "key": "ctrl+down",
+        "command": "-selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+    },
+    {
+        "key": "ctrl+up",
+        "command": "-selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+    },
+
+    // Code actions
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+
+    // Show/hide dropdown
+    {
+        "key": "ctrl+h",
+        "command": "hideSuggestWidget",
+        "when": "suggestWidgetVisible"
+    },
+    {
+        "key": "escape",
+        "command": "-hideSuggestWidget",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "hideCodeActionWidget",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "problems.action.showQuickFixes",
+        "when": "!suggestWidgetVisible && problemFocus"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "editor.action.quickFix",
+        "when": "!suggestWidgetVisible && editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
+    },
+
+    // Accept dropdown 
+    {
+        "key": "enter",
+        "command": "-acceptSelectedSuggestion",
+        "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "tab",
+        "command": "-acceptSelectedSuggestion",
+        "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "enter",
+        "command": "-acceptSelectedCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "tab",
+        "command": "-acceptSelectedCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "acceptSelectedCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "acceptSelectedSuggestion",
+        "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+    },
+
+    // AI
+    {
+        "key": "ctrl+l",
+        "command": "editor.action.inlineSuggest.acceptNextWord",
+        "when": "!suggestWidgetVisible && inlineSuggestionVisible && !editorReadonly"
+    },
+
 ]
